@@ -1,0 +1,17 @@
+@import 'normalize.css';
+@import url('https://fonts.google.com/specimen/IBM+Plex+Sans?query=ibm+');
+
+:root {
+    --primary : #ff3b5c
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: ibm-plex-sans, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
