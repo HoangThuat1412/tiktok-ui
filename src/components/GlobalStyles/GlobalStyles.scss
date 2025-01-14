@@ -2,7 +2,11 @@
 @import url('https://fonts.google.com/specimen/IBM+Plex+Sans?query=ibm+');
 
 :root {
-    --primary : #ff3b5c
+    --primary: #ff3b5c;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 html {
