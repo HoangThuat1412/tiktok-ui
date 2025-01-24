@@ -36,6 +36,7 @@
 
     input {
         flex: 1;
+        width: 361px;
         height: 100%;
         color: var(--white);
         font-size: 1.6rem;
@@ -98,6 +99,10 @@
     }
 }
 
-.custom-login {
-    color: red;
+.more-btn {
+    font-size: 2rem;
+    margin-left: 28px;
+    padding: 4px 8px;
+    background-color: transparent;
+    color: var(--white);
 }
