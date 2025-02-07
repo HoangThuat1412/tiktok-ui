@@ -2,18 +2,9 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faCircleQuestion,
     faCircleXmark,
-    faCloudUpload,
-    faCoins,
-    faEarthAsia,
     faEllipsisVertical,
-    faGear,
-    faKeyboard,
-    faMagnifyingGlass,
-    faSignOut,
     faSpinner,
-    faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/';
 import HeadlessTippy from '@tippyjs/react/headless';
@@ -25,12 +16,14 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
+import { CoinIcon, HelpIcon, InboxIcon, LanguageIcon, LogoutIcon, MessageIcon, ProfileIcon, SearchIcon, SettingsIcon, ShortcutsIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        icon: <LanguageIcon />,
         title: 'English',
         children: {
             title: 'Language',
@@ -49,12 +42,12 @@ const MENU_ITEMS = [
         }
     },
     {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <HelpIcon />,
         title: 'Feedback and help',
         to: '/feedback',
     },
     {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        icon: <ShortcutsIcon />,
         title: 'Keyboard shortcuts',
     },
 ];
@@ -82,23 +75,23 @@ function Header() {
 
     const userMenu = [
         {
-            icon: <FontAwesomeIcon icon={faUser} />,
+            icon: <ProfileIcon />,
             title: 'View profile',
             to: '/@hoaa',
         },
         {
-            icon: <FontAwesomeIcon icon={faCoins} />,
+            icon: <CoinIcon />,
             title: 'Get coins',
             to: '/coin',
         },
         {
-            icon: <FontAwesomeIcon icon={faGear} />,
+            icon: <SettingsIcon />,
             title: 'Settings',
             to: '/settings',
         },
         ...MENU_ITEMS,
         {
-            icon: <FontAwesomeIcon icon={faSignOut} />,
+            icon: <LogoutIcon />,
             title: 'Log out',
             to: '/logout',
             separate: true,
@@ -133,7 +126,7 @@ function Header() {
                         <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -143,7 +136,18 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement='bottom'>
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 200]} content="Message" placement='bottom'>
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+
+                            <Tippy delay={[0, 200]} content="Inbox" placement='bottom'>
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -155,10 +159,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src='https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/118441977edc639baf728fd892d500b3.jpeg?lk3s=30310797&nonce=94503&refresh_token=42c30b0c9c7960167d448cfb765b5084&x-expires=1738918800&x-signature=F5n8tDaA5DvewwgJzCk7WfRcsgI%3D&shp=30310797&shcp=-'
                                 alt='Nguyen Van A'
+                                fallback='https://fullstack.edu.vn/assets/f8-icon-lV2rGpF0.png'
                             />
                         ) : (
                             <button className={cx('more-btn')}>
